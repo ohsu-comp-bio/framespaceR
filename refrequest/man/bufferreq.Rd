@@ -6,7 +6,7 @@
 \usage{
 bufferreq(url = "http://192.168.99.100:5000/", end = "dataframe/slice",
   req = list(dataframeId = unbox("57854014105a6c509d189029")),
-  buffer = 1000)
+  buffer = 1000, looplimit = 1e+05)
 }
 \arguments{
 \item{url}{= string This is the url you want the data to come from e.g. "http://example.com/api/"}
@@ -16,6 +16,8 @@ bufferreq(url = "http://192.168.99.100:5000/", end = "dataframe/slice",
 \item{req}{= list Input a list containing the search request structured as such e.g. list(dataframeId = unbox("57854014105a6c509d189029"), pageStart = unbox(37), pageEnd = unbox(500))}
 
 \item{buffer}{= integer Imput the number of pages you would like to buffer for.}
+
+\item{looplimit}{= integer The number of number of iterations you want the while loop to run for before you think it is stuck in an infinite loop. Defaults at 100,000.}
 }
 \value{
 a list containig the full response

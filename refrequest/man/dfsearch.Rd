@@ -8,11 +8,11 @@ dfsearch(keyspaceIds, dataframeIds = NULL, unitIds = NULL,
   pageSize = NULL, pageToken = NULL)
 }
 \arguments{
-\item{keyspaceIds}{= vector of strings}
+\item{keyspaceIds}{= an atomic vector of strings e.g. c("a", "b", "c")}
 
-\item{dataframeIds}{= vector of strings}
+\item{dataframeIds}{= an atomic vector of strings e.g. c("a", "b", "c")}
 
-\item{unitIds}{= vector of strings}
+\item{unitIds}{= an atomic vector of strings e.g. c("a", "b", "c")}
 
 \item{pageSize}{= integer}
 
@@ -22,6 +22,6 @@ dfsearch(keyspaceIds, dataframeIds = NULL, unitIds = NULL,
 A properly formatted request
 }
 \description{
-formats the request to send through the refreq function
+Formats a dataframes/search request to send through the refreq function to the framespace server.
 }
 

@@ -10,9 +10,9 @@ dfslice(dataframeId, newMajor = NULL, newMinor = NULL, pageStart = NULL,
 \arguments{
 \item{dataframeId}{= an atomic vector of strings e.g. c("a", "b", "c")}
 
-\item{newMajor}{= dimention}
+\item{newMajor}{= an atomic vector of strings e.g. c("a", "b", "c")}
 
-\item{newMinor}{= dimention}
+\item{newMinor}{= an atomic vector of strings e.g. c("a", "b", "c")}
 
 \item{pageStart}{= integer}
 
@@ -22,6 +22,6 @@ dfslice(dataframeId, newMajor = NULL, newMinor = NULL, pageStart = NULL,
 A properly formatted request
 }
 \description{
-formats the request to send through the refreq function
+Formats a dataframe/slice request to send through the refreq function to the framespace server.
 }
 

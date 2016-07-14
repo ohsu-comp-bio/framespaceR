@@ -1,8 +1,8 @@
 #' Sets up a dataframe slice request
-#' @description formats the request to send through the refreq function
+#' @description Formats a dataframe/slice request to send through the refreq function to the framespace server.
 #' @param dataframeId = an atomic vector of strings e.g. c("a", "b", "c")
-#' @param newMajor = dimention
-#' @param newMinor = dimention
+#' @param newMajor = an atomic vector of strings e.g. c("a", "b", "c")
+#' @param newMinor = an atomic vector of strings e.g. c("a", "b", "c")
 #' @param pageStart = integer
 #' @param pageEnd = integer
 #' @return A properly formatted request

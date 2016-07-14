@@ -24,6 +24,6 @@ keysearch(axisNames, keyspaceIds = NULL, names = NULL, keys = NULL,
 A properly formatted request
 }
 \description{
-formats the request to send through the refreq function
+Formats a keyspaces/search request to send through the refreq function to the framespace server.
 }
 

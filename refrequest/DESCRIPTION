@@ -1,7 +1,7 @@
 Package: refrequest
 Type: Package
 Title: R package to access the local framespace reference server
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: person("Finn", "W", email = "womackf@ohsu.edu", role = c("aut", "cre"))
 Description: A set of functions that help access and manipulate data from the framespace server
 License: MIT + file LICENSE

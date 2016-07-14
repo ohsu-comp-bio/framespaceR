@@ -13,6 +13,6 @@ dfidfind(resp)
 An atomic vector containing dataframe ids.
 }
 \description{
-This takes a response from a dataframes search then loads the ids into an atomic vector.
+This takes a response from a dataframes/search request then loads the ids into an atomic vector.
 }
 

@@ -1,8 +1,8 @@
 #' Sets up a dataframe search request
-#' @description formats the request to send through the refreq function
-#' @param keyspaceIds = vector of strings
-#' @param dataframeIds = vector of strings
-#' @param unitIds = vector of strings
+#' @description Formats a dataframes/search request to send through the refreq function to the framespace server.
+#' @param keyspaceIds = an atomic vector of strings e.g. c("a", "b", "c")
+#' @param dataframeIds = an atomic vector of strings e.g. c("a", "b", "c")
+#' @param unitIds = an atomic vector of strings e.g. c("a", "b", "c")
 #' @param pageSize = integer
 #' @param pageToken = string
 #' @return A properly formatted request
