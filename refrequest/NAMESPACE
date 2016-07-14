@@ -3,7 +3,6 @@
 export(axessearch)
 export(bufferreq)
 export(dfidfind)
-export(dfreq)
 export(dfsearch)
 export(dfslice)
 export(genematrix)

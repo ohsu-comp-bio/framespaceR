@@ -13,6 +13,6 @@ genematrix(resp)
 A matrix structured with genes as rows and samples as collumns.
 }
 \description{
-Converts a response from a dataframe/slice request into a matrix stuctured with genes as rows and samples as collumns.
+Converts a response from a dataframe/slice request into a matrix stuctured with genes as rows and samples as collumns. This allows you to call on data like so: your_data["genename", c("samplename1", "samplename2", "samplename3")].
 }
 

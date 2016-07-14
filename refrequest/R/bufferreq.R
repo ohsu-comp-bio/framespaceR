@@ -4,16 +4,20 @@
 #' @param end = string This is the prefex to the above url e.g. "example/search" (This is mostly for convenience sake and is not necisarry if the url section has everything in it)
 #' @param req = list Input a list containing the search request structured as such e.g. list(dataframeId = unbox("57854014105a6c509d189029"), pageStart = unbox(37), pageEnd = unbox(500))
 #' @param buffer = integer Imput the number of pages you would like to buffer for.
+#' @param looplimit = integer The number of number of iterations you want the while loop to run for before you think it is stuck in an infinite loop. Defaults at 100,000.
 #' @return a list containig the full response
 #' @export
-bufferreq <- function(url = "http://192.168.99.100:5000/", end = "dataframe/slice", req = list(dataframeId = unbox("57854014105a6c509d189029")), buffer = 1000){
+bufferreq <- function(url = "http://192.168.99.100:5000/", end = "dataframe/slice", req = list(dataframeId = unbox("57854014105a6c509d189029")), buffer = 1000, looplimit = 100000){
 
   #unboxes all non-array data
   req$dataframeId <- unbox(req$dataframeId)
-  req$pageStart <- unbox(req$pageStart)
   req$pageEnd <- unbox(req$pageEnd)
-
-
+  if(is.null(req$pageStart)){
+    req$pageStart <- unbox(0)
+  }
+  else{
+    req$pageStart <- unbox(req$pageStart)
+  }
 
   #combines the url
   url <- paste0(url, end)
@@ -23,7 +27,8 @@ bufferreq <- function(url = "http://192.168.99.100:5000/", end = "dataframe/slic
   f <- req$pageStart
   l <- req$pageStart + buffer
 
-  if(n > l){
+
+  if(is.null(n) | n > l){
     req$pageEnd <- unbox(l)
   }
 
@@ -38,13 +43,13 @@ bufferreq <- function(url = "http://192.168.99.100:5000/", end = "dataframe/slic
   #converts and returns response
   response <- content(request, as = "parsed")
 
-  #c <- 1
+  c <- 1
 
 
   #Grabs the rest of the pages if needed
-  while(n > l){
+  while(!is.null(response$contents)){
     #moves to next 1000 pages
-    #c <- c + 1
+    c <- c + 1
     f = f + buffer
     l = l + buffer
 
@@ -71,10 +76,15 @@ bufferreq <- function(url = "http://192.168.99.100:5000/", end = "dataframe/slic
 
     response <- mapply(c, response, nresp)
 
+    if(n < l){
+      return(response)
+    }
 
-    #if(c >= 1000000000000){
-    #  return(print("infinite loop!"))
-    #}
+
+    if(c >= looplimit){
+      response$loop <- "You were stuck in an infinite loop."
+      return(response)
+    }
   }
 
   return(response)

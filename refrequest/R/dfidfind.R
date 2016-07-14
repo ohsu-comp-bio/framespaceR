@@ -1,5 +1,5 @@
 #' Finds dataframe ids
-#' @description This takes a response from a dataframes search then loads the ids into an atomic vector.
+#' @description This takes a response from a dataframes/search request then loads the ids into an atomic vector.
 #' @param resp = a list from the output of a dataframes search using refreq
 #' @return An atomic vector containing dataframe ids.
 #' @export
