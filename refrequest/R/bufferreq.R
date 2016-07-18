@@ -28,8 +28,13 @@ bufferreq <- function(url = "http://192.168.99.100:5000/", end = "dataframe/slic
   l <- req$pageStart + buffer
 
 
-  if(is.null(n) | n > l){
+  if(is.null(n)){
     req$pageEnd <- unbox(l)
+  }
+  else{
+    if(n > l){
+      req$pageEnd <- unbox(l)
+    }
   }
 
   #makes the request
@@ -57,8 +62,10 @@ bufferreq <- function(url = "http://192.168.99.100:5000/", end = "dataframe/slic
     nreq <- req
     nreq$pageStart <- unbox(f)
     nreq$pageEnd <- unbox(l)
-    if(n < l){
-      nreq$pageEnd <- unbox(n)
+    if(!is.null(n)){
+      if(n < l){
+        nreq$pageEnd <- unbox(n)
+      }
     }
 
     request <- POST(url,
@@ -76,8 +83,10 @@ bufferreq <- function(url = "http://192.168.99.100:5000/", end = "dataframe/slic
 
     response <- mapply(c, response, nresp)
 
-    if(n < l){
-      return(response)
+    if(!is.null(n)){
+      if(n < l){
+        return(response)
+      }
     }
 
 
