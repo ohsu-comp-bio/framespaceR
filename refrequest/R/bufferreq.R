@@ -7,7 +7,7 @@
 #' @param looplimit = integer The number of number of iterations you want the while loop to run for before you think it is stuck in an infinite loop. Defaults at 100,000.
 #' @return a list containig the full response
 #' @export
-bufferreq <- function(url = "http://192.168.99.100:5000/", end = "dataframe/slice", req = list(dataframeId = unbox("57854014105a6c509d189029")), buffer = 1000, looplimit = 100000){
+bufferreq <- function(url = "http://192.168.99.100:5000/", end = "dataframe/slice", req = list(dataframeId = unbox("57854020105a6c50c41897dc")), buffer = 1000, looplimit = 1000000){
 
   #unboxes all non-array data
   req$dataframeId <- unbox(req$dataframeId)
