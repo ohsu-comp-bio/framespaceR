@@ -39,7 +39,7 @@ refreq <- function(url = "http://192.168.99.100:5000/", end = "units/search", re
   response <- content(request, as = "parsed")
 
   #Grabs the rest of the pages if needed
-  while(is.null(response$nextPageToken == FALSE)){
+  while(!is.null(response$nextPageToken)){
     #submits a new request for the next page
     nreq <- req
     nreq$pageToken <- unbox(response$nextPageToken)

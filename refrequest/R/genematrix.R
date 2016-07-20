@@ -6,11 +6,6 @@
 genematrix <- function(resp){
   genes <- names(resp$contents)
   samples <- names(resp$contents[[genes[[1]]]])
-  mat <- matrix(rep(0, length(genes)*length(samples)), ncol = length(samples), dimnames = list(genes, samples))
-  for(j in 1:length(genes)){
-    for(k in 1:length(samples)){
-      mat[j,k] <- resp$contents[[genes[[j]]]][[samples[[k]]]]
-    }
-  }
+  mat <- matrix(unlist(resp$contents), ncol = 1218, dimnames = list(genes, samples))
   return(mat)
 }

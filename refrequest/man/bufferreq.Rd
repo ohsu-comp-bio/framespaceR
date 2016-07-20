@@ -5,8 +5,8 @@
 \title{Buffers a dataframe slice request from the framespace server}
 \usage{
 bufferreq(url = "http://192.168.99.100:5000/", end = "dataframe/slice",
-  req = list(dataframeId = unbox("57854014105a6c509d189029")),
-  buffer = 1000, looplimit = 1e+05)
+  req = list(dataframeId = unbox("57854020105a6c50c41897dc")),
+  buffer = 1000, looplimit = 1e+06)
 }
 \arguments{
 \item{url}{= string This is the url you want the data to come from e.g. "http://example.com/api/"}
