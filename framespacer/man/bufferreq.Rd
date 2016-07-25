@@ -4,12 +4,14 @@
 \alias{bufferreq}
 \title{Buffers a dataframe slice request from the framespace server}
 \usage{
-bufferreq(url = "http://192.168.99.100:5000/", end = "dataframe/slice",
-  req = list(dataframeId = unbox("57854020105a6c50c41897dc")),
-  buffer = 1000, looplimit = 1e+06)
+bufferreq(host = "192.168.99.100", port = "5000",
+  end = "/dataframe/slice", req = list(dataframeId =
+  unbox("57912977105a6c0d293bbe8e")), buffer = 1000, looplimit = 1e+06)
 }
 \arguments{
-\item{url}{= string This is the url you want the data to come from e.g. "http://example.com/api/"}
+\item{host}{= string This is the host you want the data to come from e.g. "192.168.99.100"}
+
+\item{port}{= string containing the port you wish to access e.g. "5000"}
 
 \item{end}{= string This is the prefex to the above url e.g. "example/search" (This is mostly for convenience sake and is not necisarry if the url section has everything in it)}
 
@@ -23,6 +25,6 @@ bufferreq(url = "http://192.168.99.100:5000/", end = "dataframe/slice",
 a list containig the full response
 }
 \description{
-NOTE: THIS DOES REQUIRE PAGE END TO BE IN THE REQUEST RIGHT NOW. Sends a request in the form of a json file to the framespace reference server and retreaves the content of the response in packets of 1000 pages.
+Beffers and sends a request in the form of a json file to the framespace server and retreaves the content of the response in packets.
 }
 

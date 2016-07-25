@@ -1,5 +1,5 @@
 #' Sets up a keyspaces search request
-#' @description Formats a keyspaces/search request to send through the refreq function to the framespace server.
+#' @description Formats a /keyspaces/search request to send through the framereq function to the framespace server.
 #' @param axisNames = an atomic vector of strings e.g. c("a", "b", "c")
 #' @param keyspaceIds = an atomic vector of strings e.g. c("a", "b", "c")
 #' @param names = an atomic vector of strings e.g. c("a", "b", "c")

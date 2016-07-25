@@ -22,6 +22,6 @@ dfslice(dataframeId, newMajor = NULL, newMinor = NULL, pageStart = NULL,
 A properly formatted request
 }
 \description{
-Formats a dataframe/slice request to send through the refreq function to the framespace server.
+Formats a /dataframe/slice request to send through the framereq or bufferreq functions.
 }
 

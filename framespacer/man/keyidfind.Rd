@@ -13,6 +13,6 @@ keyidfind(resp)
 An atomic vector containing keyspace ids.
 }
 \description{
-This takes a response from a keyspaces/search request then loads the ids into an atomic vector.
+This takes a response from a /keyspaces/search request then loads the ids into an atomic vector.
 }
 

@@ -1,0 +1,32 @@
+#' Framespacer: A package for accessing and manipulationg data from the framespace server.
+#'
+#' @description The framespacer package provides the following functions to set up queries, send queries to the server, convert a dataframe response to a matrix, and get summary statistics of a dataframe response by gene.
+#'
+#'
+#' @section Set up functions:
+#' \itemize{
+#'  \item axessearch - Formats a /axes/search request.
+#'  \item unitsserch - Formats a /units/search request.
+#'  \item keysearch - Formats a /keyspaces/search request.
+#'  \item dfsearch - Formats a /dataframes/search request.
+#'  \item dfslice - Formats a /dataframe/slice request.
+#'  \item keyidfind - Retrieves the keyspace ids from a keyspaces search.
+#'  \item dfidfin - Retrieves the dataframe ids from a dataframes search.
+#'}
+#'
+#' @section Request functions:
+#' \itemize{
+#'  \item framereq - Submits a request to the framespace server.
+#'  \item bufferreq - Submits a buffered request to the framespace server.
+#'}
+#'
+#' @section Response functions:
+#' \itemize{
+#'  \item genestat - Gets summary statistics from a /dataframe/slice response and lists them by gene name.
+#'  \item genematrix - Converts a /dataframe/slice response into a matrix.
+#'}
+#'
+#' @docType package
+#' @name framespacer
+#'
+NULL

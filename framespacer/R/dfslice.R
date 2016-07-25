@@ -1,5 +1,5 @@
 #' Sets up a dataframe slice request
-#' @description Formats a dataframe/slice request to send through the refreq function to the framespace server.
+#' @description Formats a /dataframe/slice request to send through the framereq or bufferreq functions.
 #' @param dataframeId = an atomic vector of strings e.g. c("a", "b", "c")
 #' @param newMajor = an atomic vector of strings e.g. c("a", "b", "c")
 #' @param newMinor = an atomic vector of strings e.g. c("a", "b", "c")

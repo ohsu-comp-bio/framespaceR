@@ -17,6 +17,6 @@ axessearch(names = NULL, pageSize = NULL, pageToken = NULL)
 A properly formatted request
 }
 \description{
-Formats a axes/search request to send through the refreq function to the framespace server.
+Formats an /axes/search request to send through the framefreq function to the framespace server.
 }
 

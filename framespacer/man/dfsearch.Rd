@@ -22,6 +22,6 @@ dfsearch(keyspaceIds, dataframeIds = NULL, unitIds = NULL,
 A properly formatted request
 }
 \description{
-Formats a dataframes/search request to send through the refreq function to the framespace server.
+Formats a /dataframes/search request to send through the framereq function to the framespace server.
 }
 

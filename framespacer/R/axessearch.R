@@ -1,5 +1,5 @@
 #' Sets up an axes search request
-#' @description Formats a axes/search request to send through the refreq function to the framespace server.
+#' @description Formats an /axes/search request to send through the framefreq function to the framespace server.
 #' @param names = an atomic vector of strings e.g. c("a", "b", "c")
 #' @param pageSize = integer
 #' @param pageToken = string

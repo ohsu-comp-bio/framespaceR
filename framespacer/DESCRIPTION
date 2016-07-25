@@ -1,4 +1,4 @@
-Package: refrequest
+Package: framespacer
 Type: Package
 Title: R package to access the local framespace reference server
 Version: 0.1.1
