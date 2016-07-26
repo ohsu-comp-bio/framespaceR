@@ -7,7 +7,7 @@
 dfidfind(resp)
 }
 \arguments{
-\item{resp}{= a list from the output of a dataframes search using refreq}
+\item{resp}{\strong{list} A list from the output of a dataframes search using refreq}
 }
 \value{
 An atomic vector containing dataframe ids.

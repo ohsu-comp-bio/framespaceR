@@ -7,9 +7,9 @@
 genestat(resp, genes = NULL)
 }
 \arguments{
-\item{resp}{= a responce from a dataframe/slice request}
+\item{resp}{\strong{list} A responce from a dataframe/slice request}
 
-\item{genes}{= an atomic vector comtaining the names of genes that you want the mean and variance for.}
+\item{genes}{\strong{vector} An atomic vector comtaining the names of genes that you want the mean and variance for.}
 }
 \value{
 A list containing gene names associated with their respective means and variances.
