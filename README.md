@@ -3,18 +3,17 @@
 This R package contains functions to access and manipulate data from the framespace server.
 
 ## Instalation Instructions:
-#### Enter the following into R:
+#### Currently the dependencies don't seem to be installing automatically so in the meantime to install enter the following into R:
 
 ```
-install.packages('httr')
-install.packages('jsonlite')
-install.packages('xml2')
+list.of.packages <- c("httr", "xml2", "jsonlite", "devtools")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
 library(httr)
 library(jsonlite)
 library(xml2)
-install.packages('devtools')
 library(devtools)
-install_github('ohsu-computational-biology/framespace_r_client/framespacer')
+install_github("ohsu-computational-biology/framespace_r_client/framespacer")
 library(framespacer)
 ```
 

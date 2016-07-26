@@ -5,6 +5,8 @@
 #' @param end \strong{string} The prefex to the above url e.g. "/example/search" (This is mostly for convenience sake and is not necisarry if the url section has everything in it)
 #' @param req \strong{list} A list containing the search request structured as such: list(axisNames = "sample", keys = c("TCGA-ZQ-A9CR-01A-11R-A39E-31", "TCGA-ZR-A9CJ-01B-11R-A38D-31"))
 #' @return A list containig the response
+#' @import jsonlite
+#' @import httr
 #' @export
 framereq <- function(host = "192.168.99.100", port = "5000", end = "/units/search", req = {}){
 

@@ -7,6 +7,8 @@
 #' @param buffer \strong{integer} The number of pages you would like to buffer for.
 #' @param looplimit \strong{integer} The number of iterations you want the while loop to run for before you think it is stuck in an infinite loop. Defaults at 100,000.
 #' @return a list containig the full response
+#' @import jsonlite
+#' @import httr
 #' @export
 bufferreq <- function(host = "192.168.99.100", port = "5000", end = "/dataframe/slice", req = list(dataframeId = unbox("57912977105a6c0d293bbe8e")), buffer = 1000, looplimit = 1000000){
 

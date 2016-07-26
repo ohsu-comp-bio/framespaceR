@@ -7,6 +7,7 @@
 #' @param pageSize \strong{integer}
 #' @param pageToken \strong{string}
 #' @return A properly formatted request
+#' @import jsonlite
 #' @export
 keysearch <- function(axisNames, keyspaceIds = NULL, names = NULL, keys = NULL, pageSize = NULL, pageToken = NULL){
   req <- list(axisNames = axisNames, keyspaceIds = "", names = "", keys = "", pageSize = pageSize, pageToken = pageToken)
