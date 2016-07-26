@@ -7,7 +7,7 @@
 genematrix(resp)
 }
 \arguments{
-\item{resp}{= a responce from a dataframe/slice request}
+\item{resp}{\strong{list} A responce from a dataframe/slice request}
 }
 \value{
 A matrix structured with genes as rows and samples as collumns.

@@ -1,8 +1,8 @@
 #' Sets up an axes search request
 #' @description Formats an /axes/search request to send through the framefreq function to the framespace server.
-#' @param names = an atomic vector of strings e.g. c("a", "b", "c")
-#' @param pageSize = integer
-#' @param pageToken = string
+#' @param names \strong{vector} An atomic vector of strings e.g. c("a", "b", "c")
+#' @param pageSize \strong{integer}
+#' @param pageToken \strong{string}
 #' @return A properly formatted request
 #' @export
 axessearch <- function(names = NULL, pageSize = NULL, pageToken = NULL){

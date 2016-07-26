@@ -8,15 +8,15 @@ dfslice(dataframeId, newMajor = NULL, newMinor = NULL, pageStart = NULL,
   pageEnd = NULL)
 }
 \arguments{
-\item{dataframeId}{= an atomic vector of strings e.g. c("a", "b", "c")}
+\item{dataframeId}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}
 
-\item{newMajor}{= an atomic vector of strings e.g. c("a", "b", "c")}
+\item{newMajor}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}
 
-\item{newMinor}{= an atomic vector of strings e.g. c("a", "b", "c")}
+\item{newMinor}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}
 
-\item{pageStart}{= integer}
+\item{pageStart}{\strong{integer}}
 
-\item{pageEnd}{= integer}
+\item{pageEnd}{\strong{integer}}
 }
 \value{
 A properly formatted request

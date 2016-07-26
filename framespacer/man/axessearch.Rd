@@ -7,11 +7,11 @@
 axessearch(names = NULL, pageSize = NULL, pageToken = NULL)
 }
 \arguments{
-\item{names}{= an atomic vector of strings e.g. c("a", "b", "c")}
+\item{names}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}
 
-\item{pageSize}{= integer}
+\item{pageSize}{\strong{integer}}
 
-\item{pageToken}{= string}
+\item{pageToken}{\strong{string}}
 }
 \value{
 A properly formatted request

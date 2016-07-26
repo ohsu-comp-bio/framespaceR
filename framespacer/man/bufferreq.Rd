@@ -9,17 +9,17 @@ bufferreq(host = "192.168.99.100", port = "5000",
   unbox("57912977105a6c0d293bbe8e")), buffer = 1000, looplimit = 1e+06)
 }
 \arguments{
-\item{host}{= string This is the host you want the data to come from e.g. "192.168.99.100"}
+\item{host}{\strong{string} The host you want the data to come from e.g. "192.168.99.100"}
 
-\item{port}{= string containing the port you wish to access e.g. "5000"}
+\item{port}{\strong{string} The port you wish to access e.g. "5000"}
 
-\item{end}{= string This is the prefex to the above url e.g. "example/search" (This is mostly for convenience sake and is not necisarry if the url section has everything in it)}
+\item{end}{\strong{string} The prefex to the above url e.g. "/example/search" (This is mostly for convenience sake and is not necisarry if the url section has everything in it)}
 
-\item{req}{= list Input a list containing the search request structured as such e.g. list(dataframeId = unbox("57854014105a6c509d189029"), pageStart = unbox(37), pageEnd = unbox(500))}
+\item{req}{\strong{list} A list containing the search request structured as such e.g. list(dataframeId = unbox("57854014105a6c509d189029"), pageStart = unbox(37), pageEnd = unbox(500))}
 
-\item{buffer}{= integer Imput the number of pages you would like to buffer for.}
+\item{buffer}{\strong{integer} The number of pages you would like to buffer for.}
 
-\item{looplimit}{= integer The number of number of iterations you want the while loop to run for before you think it is stuck in an infinite loop. Defaults at 100,000.}
+\item{looplimit}{\strong{integer} The number of iterations you want the while loop to run for before you think it is stuck in an infinite loop. Defaults at 100,000.}
 }
 \value{
 a list containig the full response

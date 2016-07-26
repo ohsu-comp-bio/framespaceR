@@ -1,10 +1,10 @@
 #' Sends a reqest to the framespace server
 #' @description Sends a request in the form of a json file to the framespace server and retreaves the content of the response in the form of a list.
-#' @param host = string This is the host you want the data to come from e.g. "192.168.99.100"
-#' @param port = string containing the port you wish to access e.g. "5000"
-#' @param end = string This is the prefex to the above url e.g. "example/search" (This is mostly for convenience sake and is not necisarry if the url section has everything in it)
-#' @param req = list Input a list containing the search request structured as such: list(axisNames = "sample", keys = c("TCGA-ZQ-A9CR-01A-11R-A39E-31", "TCGA-ZR-A9CJ-01B-11R-A38D-31"))
-#' @return a list containig the response
+#' @param host \strong{string} The host you want the data to come from e.g. "192.168.99.100"
+#' @param port \strong{string} The port you wish to access e.g. "5000"
+#' @param end \strong{string} The prefex to the above url e.g. "/example/search" (This is mostly for convenience sake and is not necisarry if the url section has everything in it)
+#' @param req \strong{list} A list containing the search request structured as such: list(axisNames = "sample", keys = c("TCGA-ZQ-A9CR-01A-11R-A39E-31", "TCGA-ZR-A9CJ-01B-11R-A38D-31"))
+#' @return A list containig the response
 #' @export
 framereq <- function(host = "192.168.99.100", port = "5000", end = "/units/search", req = {}){
 

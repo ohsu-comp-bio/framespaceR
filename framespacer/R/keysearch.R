@@ -1,11 +1,11 @@
 #' Sets up a keyspaces search request
 #' @description Formats a /keyspaces/search request to send through the framereq function to the framespace server.
-#' @param axisNames = an atomic vector of strings e.g. c("a", "b", "c")
-#' @param keyspaceIds = an atomic vector of strings e.g. c("a", "b", "c")
-#' @param names = an atomic vector of strings e.g. c("a", "b", "c")
-#' @param keys = an atomic vector of strings e.g. c("a", "b", "c")
-#' @param pageSize = integer
-#' @param pageToken = string
+#' @param axisNames \strong{vector} An atomic vector of strings e.g. c("a", "b", "c")
+#' @param keyspaceIds \strong{vector} An atomic vector of strings e.g. c("a", "b", "c")
+#' @param names \strong{vector} An atomic vector of strings e.g. c("a", "b", "c")
+#' @param keys \strong{vector} An atomic vector of strings e.g. c("a", "b", "c")
+#' @param pageSize \strong{integer}
+#' @param pageToken \strong{string}
 #' @return A properly formatted request
 #' @export
 keysearch <- function(axisNames, keyspaceIds = NULL, names = NULL, keys = NULL, pageSize = NULL, pageToken = NULL){

@@ -1,7 +1,7 @@
 #' Calculates means and variances for genes from a dataframe/slice response
 #' @description Takes a responce from a dataframe/slice request and then calculates the mean and variance for specified genes. (or for all genes if the genes parameter is left NULL)
-#' @param resp = a responce from a dataframe/slice request
-#' @param genes = an atomic vector comtaining the names of genes that you want the mean and variance for.
+#' @param resp \strong{list} A responce from a dataframe/slice request
+#' @param genes \strong{vector} An atomic vector comtaining the names of genes that you want the mean and variance for.
 #' @return A list containing gene names associated with their respective means and variances.
 #' @export
 genestat <- function(resp, genes = NULL){

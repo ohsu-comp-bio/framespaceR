@@ -7,7 +7,7 @@
 keyidfind(resp)
 }
 \arguments{
-\item{resp}{= a list from the output of a keyspace search using refreq}
+\item{resp}{\strong{list} A list from the output of a keyspace search using refreq}
 }
 \value{
 An atomic vector containing keyspace ids.
