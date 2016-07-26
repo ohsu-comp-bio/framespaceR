@@ -6,6 +6,7 @@
 #' @param pageSize \strong{integer}
 #' @param pageToken \strong{string}
 #' @return A properly formatted request
+#' @import jsonlite
 #' @export
 dfsearch <- function(keyspaceIds, dataframeIds = NULL, unitIds = NULL, pageSize = NULL, pageToken = NULL){
   req <- list(keyspaceIds = keyspaceIds, dataframeIds = "", unitIds = "", pageSize = pageSize, pageToken = pageToken)

@@ -4,6 +4,7 @@
 #' @param pageSize \strong{integer}
 #' @param pageToken \strong{string}
 #' @return A properly formatted request
+#' @import jsonlite
 #' @export
 axessearch <- function(names = NULL, pageSize = NULL, pageToken = NULL){
   req <- list(names = "", pageSize = pageSize, pageToken = pageToken)

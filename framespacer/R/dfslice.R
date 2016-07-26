@@ -6,6 +6,7 @@
 #' @param pageStart \strong{integer}
 #' @param pageEnd \strong{integer}
 #' @return A properly formatted request
+#' @import jsonlite
 #' @export
 dfslice <- function(dataframeId, newMajor = NULL, newMinor = NULL, pageStart = NULL, pageEnd = NULL){
   req <- list(dataframeId = dataframeId, newMajor = "", newMinor = "", pageStart = pageStart, pageEnd = "")
