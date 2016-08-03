@@ -92,26 +92,27 @@ List of 4
 > response$contents$`A1BG|1`$`TCGA-AR-A250-01A-31R-A169-07`
 [1] 139.351
 ```
-####This response can also be formed into a matrix using the following function:
+####This response can also be formed into a dataframe using the following function:
 ```
 > responseMatrix <- genematrix(response)
-> responseMatrix
-            TCGA-AR-A250-01A-31R-A169-07 TCGA-C8-A1HK-01A-21R-A13Q-07 TCGA-S3-A6ZG-01A-22R-A32P-07
-A1BG|1                          139.3510                       0.8278                       0.0000
-A1CF|29974                       15.5039                       0.0000                       0.5001
-A2BP1|54715                     160.6870                       0.9355                       0.3118
+> view(responseMatrix)
+                                         A1BG|1           A1CF|29974          A2BP1|54715
+TCGA-AR-A250-01A-31R-A169-07           139.3510               0.8278               0.0000
+TCGA-C8-A1HK-01A-21R-A13Q-07            15.5039               0.0000               0.5001
+TCGA-S3-A6ZG-01A-22R-A32P-07           160.6870               0.9355               0.3118
 ```
+(Can also be formed into a matrix if the df argument is set to FALSE e.g. genematrix(response, df = FALSE))
 ####Now individual values are called like this:
 ```
-> responseMatrix['A1BG|1', 'TCGA-AR-A250-01A-31R-A169-07']
+> responseMatrix['TCGA-AR-A250-01A-31R-A169-07', 'A1BG|1']
 [1] 139.351
 ```
-####Or if you want to call all of the values for a specific gene leave the sample side blank:
+####Or if you want to call all of the values for a specific gene:
 ```
-> unname(responseMatrix['A1BG|1',])
+> responseMatrix$`A1BG|1`
 [1] 139.3510   0.8278   0.0000
 ```
-(Here the unname function was used to get rid of the sample names in the output. This would not be necessary to pass those values through a function.)
+(If using a matrix the unname function can be used to get rid of sample names in the output. e.g. unname(responseMatrix['A1BG|1',]) This would not be necessary to pass those values through a function.)
 ####You can quickly get a few summary statistics directly from the response using the genestat function:
 ```
 > responseStats <- genestat(response)
