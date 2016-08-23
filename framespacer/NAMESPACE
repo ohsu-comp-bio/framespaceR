@@ -2,6 +2,7 @@
 
 export(axessearch)
 export(bufferreq)
+export(dfbuilder)
 export(dfidfind)
 export(dfsearch)
 export(dfslice)

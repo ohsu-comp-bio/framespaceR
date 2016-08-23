@@ -11,8 +11,18 @@
 dfslice <- function(dataframeId, newMajor = NULL, newMinor = NULL, pageStart = NULL, pageEnd = NULL){
   req <- list(dataframeId = dataframeId, newMajor = "", newMinor = "", pageStart = pageStart, pageEnd = "")
   req$dataframeId <- unbox(dataframeId)
-  req$newMajor <- list(keys = newMajor)
-  req$newMinor <- list(keys = newMinor)
+  if(!is.null(newMajor)){
+    req$newMajor <- list(keys = newMajor)
+  }
+  else{
+    req$newMajor <- unbox(newMajor)
+  }
+  if(!is.null(newMinor)){
+    req$newMinor <- list(keys = newMinor)
+  }
+  else{
+    req$newMinor <- unbox(newMinor)
+  }
   req$pageStart <- unbox(pageStart)
   req$pageEnd <- unbox(pageEnd)
   return(req)

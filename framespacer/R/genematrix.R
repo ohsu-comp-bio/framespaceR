@@ -7,9 +7,15 @@
 genematrix <- function(resp, df = TRUE){
   genes <- names(resp$contents)
   samples <- names(resp$contents[[genes[[1]]]])
-  mat <- t(matrix(unlist(resp$contents), ncol = length(samples), dimnames = list(genes, samples)))
   if (df){
-    mat <- as.data.frame(mat)
+    stuff <- list()
+    for(i in 1:length(genes)){
+      stuff[[genes[i]]] <- unname(unlist(resp$contents[genes[i]]))
+    }
+    mat <- structure(stuff, row.names = samples, class = "data.frame")
+  }
+  else{
+    mat <- t(matrix(unlist(resp$contents), ncol = length(samples), dimnames = list(genes, samples)))
   }
   return(mat)
 }
