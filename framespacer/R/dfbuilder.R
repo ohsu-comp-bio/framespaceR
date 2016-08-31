@@ -23,14 +23,7 @@ dfbuilder <- function(host = '192.168.99.100', port = '5000', projectName = 'tcg
   resp = framereq(host = host, port = port, end = '/dataframes/search', req = dfsearchreq)
   dfids = dfidfind(resp = resp)
   dfslicereq = dfslice(dataframeId = dfids[id_num], newMajor = newMajor, newMinor = newMinor, pageStart = 0)
-  print('requesting data...')
   dfresp = bufferreq(host = host, port = port, end = '/dataframe/slice', req = dfslicereq, buffer = buffer, looplimit = looplimit)
-  print('recieved')
-  data = 'matrix...'
-  if(df){
-    data = 'dataframe...'
-  }
-  print(paste('building', data))
   mat = genematrix(resp = dfresp, df = df)
   return(mat)
 }
