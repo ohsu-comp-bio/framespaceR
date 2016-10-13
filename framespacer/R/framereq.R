@@ -25,24 +25,4 @@ post <- function(url, data){
                   body = toJSON(data))
 
   return(response)
-  #converts and returns response
-  #response <- content(request, as = "parsed")
-
-  #Grabs the rest of the pages if needed
-  #while(!is.null(response$nextPageToken)){
-    #submits a new request for the next page
-  #  nreq <- req
-  #  nreq$pageToken <- unbox(response$nextPageToken)
-  #  request <- POST(url,
-  #                  encode = "json",
-  #                  accept_json(),
-  #                  add_headers(`Accept` = 'application/json',
-  #                              `Content-Type` = 'application/json'),
-  #                  body = toJSON(nreq))
-  #  nresp <- content(request, as = "parsed")
-  #  response <- mapply(c, response, nresp)
-  #  response$nextPageToken <- unbox(nresp$nextPageToken)
-  #}
-
-  #return(response)
 }
