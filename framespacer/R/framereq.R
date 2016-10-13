@@ -8,54 +8,41 @@
 #' @import jsonlite
 #' @import httr
 #' @export
-framereq <- function(host = "192.168.99.100", port = "5000", end = "/units/search", req = {}){
+post <- function(url, data){
 
-  #unboxes all non-array data
-  if(!is.null(req$pageSize)){
-    req$pageSize <- unbox(req$pageSize)
+  if(!is.null(data$pageSize)){
+    data$pageSize <- unbox(data$pageSize)
   }
-  if(!is.null(req$dataframeId)){
-    req$dataframeId <- unbox(req$dataframeId)
-  }
-  if(!is.null(req$pageStart)){
-    req$pageStart <- unbox(req$pageStart)
-  }
-  if(!is.null(req$pageEnd)){
-    req$pageEnd <- unbox(req$pageEnd)
-  }
-  if(!is.null(req$pageToken)){
-    req$pageToken <- unbox(req$pageToken)
+  if(!is.null(data$pageToken)){
+    data$pageToken <- NULL
   }
 
-  #combines the url
-  url <- paste0("http://", host, ":", port, end)
-
-  #makes the request
-  request <- POST(url,
+  response <- POST(url,
                   encode = "json",
                   accept_json(),
                   add_headers(`Accept` = 'application/json',
                               `Content-Type` = 'application/json'),
-                  body = toJSON(req))
-
-  #converts and returns response
-  response <- content(request, as = "parsed")
-
-  #Grabs the rest of the pages if needed
-  while(!is.null(response$nextPageToken)){
-    #submits a new request for the next page
-    nreq <- req
-    nreq$pageToken <- unbox(response$nextPageToken)
-    request <- POST(url,
-                    encode = "json",
-                    accept_json(),
-                    add_headers(`Accept` = 'application/json',
-                                `Content-Type` = 'application/json'),
-                    body = toJSON(nreq))
-    nresp <- content(request, as = "parsed")
-    response <- mapply(c, response, nresp)
-    response$nextPageToken <- unbox(nresp$nextPageToken)
-  }
+                  body = toJSON(data))
 
   return(response)
+  #converts and returns response
+  #response <- content(request, as = "parsed")
+
+  #Grabs the rest of the pages if needed
+  #while(!is.null(response$nextPageToken)){
+    #submits a new request for the next page
+  #  nreq <- req
+  #  nreq$pageToken <- unbox(response$nextPageToken)
+  #  request <- POST(url,
+  #                  encode = "json",
+  #                  accept_json(),
+  #                  add_headers(`Accept` = 'application/json',
+  #                              `Content-Type` = 'application/json'),
+  #                  body = toJSON(nreq))
+  #  nresp <- content(request, as = "parsed")
+  #  response <- mapply(c, response, nresp)
+  #  response$nextPageToken <- unbox(nresp$nextPageToken)
+  #}
+
+  #return(response)
 }

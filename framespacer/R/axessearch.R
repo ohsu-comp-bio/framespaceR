@@ -1,3 +1,4 @@
+
 #' Sets up an axes search request
 #' @description Formats an /axes/search request to send through the framefreq function to the framespace server.
 #' @param names \strong{vector} An atomic vector of strings e.g. c("a", "b", "c")
@@ -6,10 +7,11 @@
 #' @return A properly formatted request
 #' @import jsonlite
 #' @export
-axessearch <- function(names = NULL, pageSize = NULL, pageToken = NULL){
-  req <- list(names = "", pageSize = pageSize, pageToken = pageToken)
-  req$names <- names
-  req$pageSize <- unbox(req$pageSize)
-  req$pageToken <- unbox(req$pageToken)
-  return(req)
+#' 
+axessearch <- function(url, names = NULL, pageSize = NULL, pageToken = NULL){
+  # build request
+  p <- new(framespace.SearchAxesRequest)
+  p$add("names", names)
+  # make request
+  post(paste(url, '/axes/search', sep=""), as.list(p))
 }

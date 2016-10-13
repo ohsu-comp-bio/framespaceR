@@ -4,7 +4,7 @@
 \alias{axessearch}
 \title{Sets up an axes search request}
 \usage{
-axessearch(names = NULL, pageSize = NULL, pageToken = NULL)
+axessearch(url, names = NULL, pageSize = NULL, pageToken = NULL)
 }
 \arguments{
 \item{names}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}
