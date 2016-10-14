@@ -8,11 +8,16 @@
 #' @return A properly formatted request
 #' @import jsonlite
 #' @export
-dfsearch <- function(keyspaceIds, dataframeIds = NULL, unitIds = NULL, pageSize = NULL, pageToken = NULL){
-  req <- list(keyspaceIds = keyspaceIds, dataframeIds = "", unitIds = "", pageSize = pageSize, pageToken = pageToken)
-  req$dataframeIds <- dataframeIds
-  req$unitIds <- unitIds
-  req$pageSize <- unbox(req$pageSize)
-  req$pageToken <- unbox(req$pageToken)
-  return(req)
+dfsearch <- function(url, keyspaceIds, dataframeIds = NULL, unitIds = NULL, pageSize = NULL, pageToken = NULL, raw = FALSE){
+  p <- new(framespace.SearchDataFramesRequest)
+  p$add("keyspaceIds", keyspaceIds)
+  p$add("dataframeIds", dataframeIds)
+  p$add("unitIds", unitIds)
+  
+  resp <- post(paste(url, '/dataframes/search', sep=""), as.list(p))
+  if(raw){
+    return(resp)
+  }else{
+    return(content(resp, as = "parsed"))
+  }
 }

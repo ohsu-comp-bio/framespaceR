@@ -4,8 +4,8 @@
 \alias{dfsearch}
 \title{Sets up a dataframe search request}
 \usage{
-dfsearch(keyspaceIds, dataframeIds = NULL, unitIds = NULL,
-  pageSize = NULL, pageToken = NULL)
+dfsearch(url, keyspaceIds, dataframeIds = NULL, unitIds = NULL,
+  pageSize = NULL, pageToken = NULL, raw = FALSE)
 }
 \arguments{
 \item{keyspaceIds}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}

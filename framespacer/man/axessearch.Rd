@@ -4,14 +4,19 @@
 \alias{axessearch}
 \title{Sets up an axes search request}
 \usage{
-axessearch(url, names = NULL, pageSize = NULL, pageToken = NULL)
+axessearch(url, names = NULL, pageSize = NULL, pageToken = NULL,
+  raw = FALSE)
 }
 \arguments{
+\item{url}{\strong{string}}
+
 \item{names}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}
 
 \item{pageSize}{\strong{integer}}
 
 \item{pageToken}{\strong{string}}
+
+\item{raw}{\strong{boolean} Flag to print raw or parsed content (default).}
 }
 \value{
 A properly formatted request

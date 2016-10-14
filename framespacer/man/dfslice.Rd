@@ -4,19 +4,20 @@
 \alias{dfslice}
 \title{Sets up a dataframe slice request}
 \usage{
-dfslice(dataframeId, newMajor = NULL, newMinor = NULL, pageStart = NULL,
-  pageEnd = NULL)
+dfslice(url, dataframeId, newMajorId = NULL, newMajorKeys = NULL,
+  newMinorId = NULL, newMinorKeys = NULL, pageStart = NULL,
+  pageEnd = NULL, raw = FALSE)
 }
 \arguments{
 \item{dataframeId}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}
 
-\item{newMajor}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}
-
-\item{newMinor}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}
-
 \item{pageStart}{\strong{integer}}
 
 \item{pageEnd}{\strong{integer}}
+
+\item{newMajor}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}
+
+\item{newMinor}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}
 }
 \value{
 A properly formatted request

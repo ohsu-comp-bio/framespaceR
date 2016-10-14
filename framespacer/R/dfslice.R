@@ -8,22 +8,23 @@
 #' @return A properly formatted request
 #' @import jsonlite
 #' @export
-dfslice <- function(dataframeId, newMajor = NULL, newMinor = NULL, pageStart = NULL, pageEnd = NULL){
-  req <- list(dataframeId = dataframeId, newMajor = "", newMinor = "", pageStart = pageStart, pageEnd = "")
-  req$dataframeId <- unbox(dataframeId)
-  if(!is.null(newMajor)){
-    req$newMajor <- list(keys = newMajor)
+dfslice <- function(url, dataframeId, newMajorId = NULL, newMajorKeys = NULL, newMinorId = NULL, newMinorKeys = NULL, pageStart = NULL, pageEnd = NULL, raw = FALSE){
+  p <- new(framespace.SliceDataFrameRequest, dataframeId=dataframeId, pageStart=pageStart, pageEnd=pageEnd)
+  p$newMajor$keyspaceId = newMajorId
+  p$newMajor$add("keys", newMajorKeys)
+  p$newMinor$keyspaceId = newMinorId
+  p$newMinor$add("keys", newMinorKeys)
+
+  l <- as.list(p)
+  l$dataframeId <- unbox(l$dataframeId)
+  l$newMajor <- as.list(l$newMajor)
+  l$newMajor$keyspaceId <- unbox(l$newMajor$keyspaceId)
+  l$newMinor <- as.list(l$newMinor)
+  l$newMinor$keyspaceId <- unbox(l$newMinor$keyspaceId)
+  resp <- post(paste(url, '/dataframe/slice', sep=""), l)
+  if(raw){
+    return(resp)
+  }else{
+    return(content(resp, as = "parsed"))
   }
-  else{
-    req$newMajor <- unbox(newMajor)
-  }
-  if(!is.null(newMinor)){
-    req$newMinor <- list(keys = newMinor)
-  }
-  else{
-    req$newMinor <- unbox(newMinor)
-  }
-  req$pageStart <- unbox(pageStart)
-  req$pageEnd <- unbox(pageEnd)
-  return(req)
 }

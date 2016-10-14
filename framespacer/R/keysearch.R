@@ -9,12 +9,17 @@
 #' @return A properly formatted request
 #' @import jsonlite
 #' @export
-keysearch <- function(axisNames, keyspaceIds = NULL, names = NULL, keys = NULL, pageSize = NULL, pageToken = NULL){
-  req <- list(axisNames = axisNames, keyspaceIds = "", names = "", keys = "", pageSize = pageSize, pageToken = pageToken)
-  req$keyspaceIds <- keyspaceIds
-  req$names <- names
-  req$keys <- keys
-  req$pageSize <- unbox(req$pageSize)
-  req$pageToken <- unbox(req$pageToken)
-  return(req)
+kssearch <- function(url, axisNames, keyspaceIds = NULL, names = NULL, keys = NULL, pageSize = NULL, pageToken = NULL, raw=FALSE){
+  p <- new(framespace.SearchKeySpacesRequest)
+  p$add("axisNames", axisNames)
+  p$add("keyspaceIds", keyspaceIds)
+  p$add("names", names)
+  p$add("keys", keys)
+  
+  resp <- post(paste(url, '/keyspaces/search', sep=""), as.list(p))
+  if(raw){
+    return(resp)
+  }else{
+    return(content(resp, as = "parsed"))
+  }
 }

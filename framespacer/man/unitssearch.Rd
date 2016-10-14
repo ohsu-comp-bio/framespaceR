@@ -4,16 +4,19 @@
 \alias{unitssearch}
 \title{Sets up a units search request}
 \usage{
-unitssearch(ids = NULL, names = NULL, pageSize = NULL, pageToken = NULL)
+unitssearch(url, ids = NULL, names = NULL, pageSize = NULL,
+  pageToken = NULL, raw = FALSE)
 }
 \arguments{
-\item{ids}{= an atomic vector of strings e.g. c("a", "b", "c")}
+\item{ids}{\strong{vector} an atomic vector of strings e.g. c("a", "b", "c")}
 
-\item{names}{= an atomic vector of strings e.g. c("a", "b", "c")}
+\item{names}{\strong{vector} an atomic vector of strings e.g. c("a", "b", "c")}
 
-\item{pageSize}{= integer}
+\item{pageSize}{\strong{integer}}
 
-\item{pageToken}{= string}
+\item{pageToken}{\strong{string}}
+
+\item{raw}{\strong{boolean} Flag to print raw or parsed content (default).}
 }
 \value{
 A properly formatted request
