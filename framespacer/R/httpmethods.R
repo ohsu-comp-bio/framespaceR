@@ -3,6 +3,8 @@
 #' @param url \strong{string} FrameSpace hostname or host:port to send request
 #' @param data \strong{list} list version of framespace proto request
 #' @return httr POST response
+#' @import httr
+#' @import jsonlite
 #' @export
 post <- function(url, data){
 
