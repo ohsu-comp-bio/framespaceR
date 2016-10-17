@@ -4,12 +4,9 @@
 #' @return R DataFrame
 #' @export
 as.dataframe <- function(dataframe){
-  major_keys <- names(dataframe$contents)
-  minor_keys <- names(dataframe$contents[[major_keys[[1]]]])
-  contents <- list()
-  for(i in 1:length(major_keys)){
-    contents[[major_keys[i]]] <- unname(unlist(dataframe$contents[major_keys[i]]))
-  }
-  mat <- structure(contents, row.names = minor_keys, class = "data.frame")
+  # flatten the vectors in the FrameSpace DataFrame
+  contents <- sapply(names(dataframe$contents), function(x) unname(unlist(dataframe$contents[x])), simplify=FALSE, USE.NAMES=TRUE)
+  # format matrix with flatten contents
+  mat <- structure(contents, row.names = names(dataframe$contents[[names(contents[1])]]), class = "data.frame")
   return(mat)
 }
