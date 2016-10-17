@@ -3,7 +3,6 @@
 export(as.dataframe)
 export(axessearch)
 export(bufferreq)
-export(dfbuilder)
 export(dfsearch)
 export(dfslice)
 export(genestat)

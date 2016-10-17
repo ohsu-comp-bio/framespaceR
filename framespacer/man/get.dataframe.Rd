@@ -5,7 +5,7 @@
 \title{Get a dataframe for a given keyspace and unit.}
 \usage{
 get.dataframe(url, keyspaceName, unitName, pageStart = NULL, pageEnd = NULL,
-  raw = FALSE)
+  type = "data.frame")
 }
 \arguments{
 \item{keyspaceName}{\strong{string} Name of the keyspace}
