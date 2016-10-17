@@ -8,6 +8,8 @@ kssearch(url, axisNames = NULL, keyspaceIds = NULL, names = NULL,
   keys = NULL, pageSize = NULL, pageToken = NULL, raw = FALSE)
 }
 \arguments{
+\item{url}{\strong{string} FrameSpace hostname or host:port to send request}
+
 \item{axisNames}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}
 
 \item{keyspaceIds}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}
@@ -21,9 +23,9 @@ kssearch(url, axisNames = NULL, keyspaceIds = NULL, names = NULL,
 \item{pageToken}{\strong{string}}
 }
 \value{
-A properly formatted request
+FrameSpace SearchKeySpacesResponse
 }
 \description{
-Formats a /keyspaces/search request to send through the framereq function to the framespace server.
+Performs a /keyspaces/search request
 }
 

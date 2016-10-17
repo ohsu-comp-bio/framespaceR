@@ -2,7 +2,7 @@
 % Please edit documentation in R/getdataframe.R
 \name{get.dataframe}
 \alias{get.dataframe}
-\title{Get a dataframe for a given keyspace and unit.}
+\title{Get DataFrame from KeySpace name and Unit name}
 \usage{
 get.dataframe(url, keyspaceName, unitName, pageStart = NULL, pageEnd = NULL,
   type = "data.frame")
@@ -17,7 +17,7 @@ get.dataframe(url, keyspaceName, unitName, pageStart = NULL, pageEnd = NULL,
 \item{pageEnd}{\strong{integer}}
 }
 \value{
-A dataframe as an R datatable
+R DataFrame
 }
 \description{
 retrieves a dataframe from a given keyspace name and a unit name

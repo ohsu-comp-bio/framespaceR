@@ -8,7 +8,7 @@ axessearch(url, names = NULL, pageSize = NULL, pageToken = NULL,
   raw = FALSE)
 }
 \arguments{
-\item{url}{\strong{string}}
+\item{url}{\strong{string} FrameSpace hostname or host:port to send request}
 
 \item{names}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}
 
@@ -19,9 +19,9 @@ axessearch(url, names = NULL, pageSize = NULL, pageToken = NULL,
 \item{raw}{\strong{boolean} Flag to print raw or parsed content (default).}
 }
 \value{
-A properly formatted request
+FrameSpace SearchAxesResponse
 }
 \description{
-Formats an /axes/search request to send through the framefreq function to the framespace server.
+Perform /axes/search request
 }
 

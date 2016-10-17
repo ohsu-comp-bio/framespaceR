@@ -1,12 +1,13 @@
 #' Sets up a dataframe slice request
-#' @description Formats a /dataframe/slice request to send through the framereq or bufferreq functions.
-#' @param dataframeId \strong{vector} An atomic vector of strings e.g. c("a", "b", "c")
-#' @param newMajor \strong{vector} An atomic vector of strings e.g. c("a", "b", "c")
-#' @param newMinor \strong{vector} An atomic vector of strings e.g. c("a", "b", "c")
+#' @description Performs /dataframe/slice request
+#' @param dataframeId \strong{string}
+#' @param newMajorId \strong{string} keyspaceId for the major dimension
+#' @param newMajorKeys \strong{vector} atomic vector of keys associated with the major dimension
+#' @param newMinorId \strong{string} keyspaceId for the minor dimension
+#' @param newMajorKeys \strong{vector} atomic vector of keys associated with the minor dimension
 #' @param pageStart \strong{integer}
 #' @param pageEnd \strong{integer}
-#' @return A properly formatted request
-#' @import jsonlite
+#' @return FrameSpace DataFrame
 #' @export
 dfslice <- function(url, dataframeId, newMajorId = NULL, newMajorKeys = NULL, newMinorId = NULL, newMinorKeys = NULL, pageStart = NULL, pageEnd = NULL, raw = FALSE){
   p <- new(framespace.SliceDataFrameRequest, dataframeId=dataframeId, pageStart=pageStart, pageEnd=pageEnd)
@@ -21,6 +22,7 @@ dfslice <- function(url, dataframeId, newMajorId = NULL, newMajorKeys = NULL, ne
   l$newMajor$keyspaceId <- unbox(l$newMajor$keyspaceId)
   l$newMinor <- as.list(l$newMinor)
   l$newMinor$keyspaceId <- unbox(l$newMinor$keyspaceId)
+
   resp <- post(paste(url, '/dataframe/slice', sep=""), l)
   if(raw){
     return(resp)

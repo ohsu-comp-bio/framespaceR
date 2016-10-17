@@ -2,7 +2,7 @@
 % Please edit documentation in R/dfsearch.R
 \name{dfsearch}
 \alias{dfsearch}
-\title{Sets up a dataframe search request}
+\title{Sets up a search dataframe request}
 \usage{
 dfsearch(url, keyspaceIds, dataframeIds = NULL, unitIds = NULL,
   pageSize = NULL, pageToken = NULL, raw = FALSE)
@@ -19,9 +19,9 @@ dfsearch(url, keyspaceIds, dataframeIds = NULL, unitIds = NULL,
 \item{pageToken}{\strong{string}}
 }
 \value{
-A properly formatted request
+FrameSpace SearchDataFrameResponse
 }
 \description{
-Formats a /dataframes/search request to send through the framereq function to the framespace server.
+Perform /dataframes/search request
 }
 

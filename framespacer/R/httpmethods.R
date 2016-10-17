@@ -1,12 +1,8 @@
-#' Sends a reqest to the framespace server
-#' @description Sends a request in the form of a json file to the framespace server and retreaves the content of the response in the form of a list.
-#' @param host \strong{string} The host you want the data to come from e.g. "192.168.99.100"
-#' @param port \strong{string} The port you wish to access e.g. "5000"
-#' @param end \strong{string} The prefex to the above url e.g. "/example/search" (This is mostly for convenience sake and is not necisarry if the url section has everything in it)
-#' @param req \strong{list} A list containing the search request structured as such: list(axisNames = "sample", keys = c("TCGA-ZQ-A9CR-01A-11R-A39E-31", "TCGA-ZR-A9CJ-01B-11R-A38D-31"))
-#' @return A list containig the response
-#' @import jsonlite
-#' @import httr
+#' HTTP methods generalized for FrameSpace Requests
+#' @description HTTP methods generalized for FrameSpace requests
+#' @param url \strong{string} FrameSpace hostname or host:port to send request
+#' @param data \strong{list} list version of framespace proto request
+#' @return httr POST response
 #' @export
 post <- function(url, data){
 

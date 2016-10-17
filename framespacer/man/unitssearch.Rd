@@ -8,6 +8,8 @@ unitssearch(url, ids = NULL, names = NULL, pageSize = NULL,
   pageToken = NULL, raw = FALSE)
 }
 \arguments{
+\item{url}{\strong{string} FrameSpace hostname or host:port to send request}
+
 \item{ids}{\strong{vector} an atomic vector of strings e.g. c("a", "b", "c")}
 
 \item{names}{\strong{vector} an atomic vector of strings e.g. c("a", "b", "c")}
@@ -19,9 +21,9 @@ unitssearch(url, ids = NULL, names = NULL, pageSize = NULL,
 \item{raw}{\strong{boolean} Flag to print raw or parsed content (default).}
 }
 \value{
-A properly formatted request
+FrameSpace SearchUnitsResponse
 }
 \description{
-Formats a /units/search request to send through the framereq function to the framespace server.
+Performs /units/search request
 }
 

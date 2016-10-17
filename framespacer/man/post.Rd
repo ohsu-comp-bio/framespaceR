@@ -2,23 +2,19 @@
 % Please edit documentation in R/httpmethods.R
 \name{post}
 \alias{post}
-\title{Sends a reqest to the framespace server}
+\title{HTTP methods generalized for FrameSpace Requests}
 \usage{
 post(url, data)
 }
 \arguments{
-\item{host}{\strong{string} The host you want the data to come from e.g. "192.168.99.100"}
+\item{url}{\strong{string} FrameSpace hostname or host:port to send request}
 
-\item{port}{\strong{string} The port you wish to access e.g. "5000"}
-
-\item{end}{\strong{string} The prefex to the above url e.g. "/example/search" (This is mostly for convenience sake and is not necisarry if the url section has everything in it)}
-
-\item{req}{\strong{list} A list containing the search request structured as such: list(axisNames = "sample", keys = c("TCGA-ZQ-A9CR-01A-11R-A39E-31", "TCGA-ZR-A9CJ-01B-11R-A38D-31"))}
+\item{data}{\strong{list} list version of framespace proto request}
 }
 \value{
-A list containig the response
+httr POST response
 }
 \description{
-Sends a request in the form of a json file to the framespace server and retreaves the content of the response in the form of a list.
+HTTP methods generalized for FrameSpace requests
 }
 

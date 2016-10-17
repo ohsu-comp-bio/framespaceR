@@ -1,11 +1,10 @@
-#' Get a dataframe for a given keyspace and unit.
+#' Get DataFrame from KeySpace name and Unit name
 #' @description retrieves a dataframe from a given keyspace name and a unit name
 #' @param keyspaceName \strong{string} Name of the keyspace
 #' @param unitName \strong{string} Name of the unit
 #' @param pageStart \strong{integer}
 #' @param pageEnd \strong{integer}
-#' @return A dataframe as an R datatable
-#' @import jsonlite
+#' @return R DataFrame
 #' @export
 get.dataframe <- function(url, keyspaceName, unitName, pageStart = NULL, pageEnd = NULL, type = "data.frame"){
   ks <- kssearch(url, names=c(keyspaceName))

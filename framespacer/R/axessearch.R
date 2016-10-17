@@ -1,17 +1,15 @@
 
 #' Sets up an axes search request
-#' @description Formats an /axes/search request to send through the framefreq function to the framespace server.
-#' @param url \strong{string}
+#' @description Perform /axes/search request
+#' @param url \strong{string} FrameSpace hostname or host:port to send request
 #' @param names \strong{vector} An atomic vector of strings e.g. c("a", "b", "c")
 #' @param pageSize \strong{integer}
 #' @param pageToken \strong{string}
 #' @param raw \strong{boolean} Flag to print raw or parsed content (default).
-#' @return A properly formatted request
-#' @import jsonlite
+#' @return FrameSpace SearchAxesResponse
 #' @export
-#' 
+#'
 axessearch <- function(url, names = NULL, pageSize = NULL, pageToken = NULL, raw=FALSE){
-  # build request
   p <- new(framespace.SearchAxesRequest)
   p$add("names", names)
 

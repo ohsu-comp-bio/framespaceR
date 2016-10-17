@@ -1,13 +1,13 @@
 #' Sets up a keyspaces search request
-#' @description Formats a /keyspaces/search request to send through the framereq function to the framespace server.
+#' @description Performs a /keyspaces/search request
+#' @param url \strong{string} FrameSpace hostname or host:port to send request
 #' @param axisNames \strong{vector} An atomic vector of strings e.g. c("a", "b", "c")
 #' @param keyspaceIds \strong{vector} An atomic vector of strings e.g. c("a", "b", "c")
 #' @param names \strong{vector} An atomic vector of strings e.g. c("a", "b", "c")
 #' @param keys \strong{vector} An atomic vector of strings e.g. c("a", "b", "c")
 #' @param pageSize \strong{integer}
 #' @param pageToken \strong{string}
-#' @return A properly formatted request
-#' @import jsonlite
+#' @return FrameSpace SearchKeySpacesResponse
 #' @export
 kssearch <- function(url, axisNames = NULL, keyspaceIds = NULL, names = NULL, keys = NULL, pageSize = NULL, pageToken = NULL, raw=FALSE){
   p <- new(framespace.SearchKeySpacesRequest)

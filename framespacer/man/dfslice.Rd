@@ -9,20 +9,24 @@ dfslice(url, dataframeId, newMajorId = NULL, newMajorKeys = NULL,
   pageEnd = NULL, raw = FALSE)
 }
 \arguments{
-\item{dataframeId}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}
+\item{dataframeId}{\strong{string}}
+
+\item{newMajorId}{\strong{string} keyspaceId for the major dimension}
+
+\item{newMajorKeys}{\strong{vector} atomic vector of keys associated with the major dimension}
+
+\item{newMinorId}{\strong{string} keyspaceId for the minor dimension}
 
 \item{pageStart}{\strong{integer}}
 
 \item{pageEnd}{\strong{integer}}
 
-\item{newMajor}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}
-
-\item{newMinor}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}
+\item{newMajorKeys}{\strong{vector} atomic vector of keys associated with the minor dimension}
 }
 \value{
-A properly formatted request
+FrameSpace DataFrame
 }
 \description{
-Formats a /dataframe/slice request to send through the framereq or bufferreq functions.
+Performs /dataframe/slice request
 }
 
