@@ -6,7 +6,7 @@ syntax = "proto3";
 // along with Request and Response objects for endpoints. 
 package framespace;
 
-import "struct.proto";
+import "imports/struct.proto";
 
 
 // Axis represents the top level description of a KeySpace
