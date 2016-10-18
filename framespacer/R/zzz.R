@@ -3,5 +3,5 @@
 
 .onLoad <- function(libname, pkgname){
   library(RProtoBuf)
-  readProtoFiles("R/proto/framespace.proto")
+  readProtoFiles(dir='R/proto', package=pkgname, lib.loc=libname)
 }
