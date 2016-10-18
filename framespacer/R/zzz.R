@@ -3,5 +3,10 @@
 
 .onLoad <- function(libname, pkgname){
   library(RProtoBuf)
-  readProtoFiles(dir='R/proto', package=pkgname, lib.loc=libname)
+  readProtoFiles(package=pkgname, lib.loc=libname)
+  #protodir <- system.file("proto", package="framespacer")
+  #print(protodir)
+  #print(pkgname)
+  #print(libname)
+  #readProtoFiles(package=pkgname, lib.loc=libname)
 }
