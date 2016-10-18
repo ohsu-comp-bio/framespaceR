@@ -4,6 +4,7 @@
 #' @param data \strong{list} list version of framespace proto request
 #' @return httr POST response
 #' @import httr
+#' @import RProtoBuf
 #' @import jsonlite
 #' @export
 post <- function(url, data){

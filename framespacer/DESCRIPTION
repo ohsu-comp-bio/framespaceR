@@ -9,6 +9,7 @@ LazyData: TRUE
 RoxygenNote: 5.0.1
 Imports:
   httr (>= 1.2.1),
-  jsonlite (>= 1.0)
+  jsonlite (>= 1.0),
+  RProtoBuf (>= 0.4.6)
 Suggests:
   xml2 (>= 1.0.0)
