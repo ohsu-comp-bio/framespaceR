@@ -10,17 +10,16 @@
 #' @return FrameSpace DataFrame
 #' @export
 dfslice <- function(url, dataframeId, newMajorId = NULL, newMajorKeys = NULL, newMinorId = NULL, newMinorKeys = NULL, pageStart = NULL, pageEnd = NULL, raw = FALSE){
+  # setting nested types is not working
   p <- new(framespace.SliceDataFrameRequest, dataframeId=dataframeId, pageStart=pageStart, pageEnd=pageEnd)
-  p$newMajor$keyspaceId = newMajorId
-  p$newMajor$add("keys", newMajorKeys)
-  p$newMinor$keyspaceId = newMinorId
-  p$newMinor$add("keys", newMinorKeys)
+  dmaj <- new(framespace.Dimension, keyspaceId=newMajorId, keys=newMajorKeys)
+  dmin <- new(framespace.Dimension, keyspaceId=newMinorId, keys=newMinorKeys)
 
   l <- as.list(p)
   l$dataframeId <- unbox(l$dataframeId)
-  l$newMajor <- as.list(l$newMajor)
+  l$newMajor <- as.list(dmaj)
   l$newMajor$keyspaceId <- unbox(l$newMajor$keyspaceId)
-  l$newMinor <- as.list(l$newMinor)
+  l$newMinor <- as.list(dmin)
   l$newMinor$keyspaceId <- unbox(l$newMinor$keyspaceId)
 
   resp <- post(paste(url, '/dataframe/slice', sep=""), l)

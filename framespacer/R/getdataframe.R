@@ -10,7 +10,12 @@ get.dataframe <- function(url, keyspaceName, unitName, pageStart = NULL, pageEnd
   ks <- kssearch(url, names=c(keyspaceName))
   u <- unitssearch(url, names=c(unitName))
   df <- dfsearch(url, keyspaceIds=c(ks$keyspaces[[1]]$id), unitIds=u$units[[1]]$id)
-  data <- dfslice(url, df$dataframes[[1]]$id, pageStart = pageStart, pageEnd=pageEnd)
+  # if this is a clinical dataframe, set filter on unit
+  # this avoids NaN issue - need to fix this server side
+  if(!grepl(ks$keyspaces[[1]]$axisName,'clinical')){
+    unitName <- NULL
+  }
+  data <- dfslice(url, df$dataframes[[1]]$id, newMinorKeys=c(unitName), pageStart = pageStart, pageEnd=pageEnd)
   if(type == "data.frame"){
     data <- as.dataframe(data)
   }
