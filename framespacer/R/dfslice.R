@@ -26,6 +26,6 @@ dfslice <- function(url, dataframeId, newMajorId = NULL, newMajorKeys = NULL, ne
   if(raw){
     return(resp)
   }else{
-    return(content(resp, as = "parsed"))
+    return(structure(content(resp, as = "parsed"), class = "framespace"))
   }
 }

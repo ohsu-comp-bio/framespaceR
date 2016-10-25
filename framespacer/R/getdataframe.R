@@ -17,7 +17,7 @@ get.dataframe <- function(url, keyspaceName, unitName, pageStart = NULL, pageEnd
   }
   data <- dfslice(url, df$dataframes[[1]]$id, newMinorKeys=c(unitName), pageStart = pageStart, pageEnd=pageEnd)
   if(type == "data.frame"){
-    data <- as.dataframe(data)
+    data <- as.data.frame(data)
   }
   return(data)
 }

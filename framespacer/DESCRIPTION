@@ -1,9 +1,9 @@
 Package: framespacer
 Type: Package
-Title: R package to access the local framespace server
+Title: FrameSpace R Client
 Version: 0.1.1
-Authors@R: person("Finn", "W", email = "womackf@ohsu.edu", role = c("aut", "cre"))
-Description: A set of functions that help access and manipulate data from the framespace server.
+Authors@R: c(person("Jaclyn", "S", email="smijac@ohsu.edu", role = c("aut", "cre")), person("Finn", "W", email = "womackf@ohsu.edu", role = c("aut")))
+Description: Request data from FrameSpace as an R Object
 License: MIT + file LICENSE
 LazyData: TRUE
 RoxygenNote: 5.0.1

@@ -3,7 +3,7 @@
 #' @param dataframe \strong{list} FrameSpace DataFrame
 #' @return R DataFrame
 #' @export
-as.dataframe <- function(dataframe){
+as.data.frame.framespace <- function(dataframe){
   # flatten the vectors in the FrameSpace DataFrame
   contents <- sapply(names(dataframe$contents), function(x) unname(unlist(dataframe$contents[x])), simplify=FALSE, USE.NAMES=TRUE)
   # format matrix with flatten contents
