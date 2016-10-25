@@ -4,36 +4,39 @@
 \name{framespacer}
 \alias{framespacer}
 \alias{framespacer-package}
-\title{Framespacer: A package for accessing and manipulationg data from the framespace server.}
+\title{Framespacer: A client package for accessing and manipulationg data from a FrameSpace server.}
 \description{
-The framespacer package provides the following functions to set up queries, send queries to the server, convert a dataframe response to a matrix, and get summary statistics of a dataframe response by gene.
+The framespacer package is designed to bring responses from a FrameSpace server into an R environment.
 }
-\section{Set up functions}{
+\section{Basic Search Functions}{
 
 \itemize{
- \item axessearch - Formats a /axes/search request.
- \item unitsserch - Formats a /units/search request.
- \item keysearch - Formats a /keyspaces/search request.
- \item dfsearch - Formats a /dataframes/search request.
- \item dfslice - Formats a /dataframe/slice request.
- \item keyidfind - Retrieves the keyspace ids from a keyspaces search.
- \item dfidfin - Retrieves the dataframe ids from a dataframes search.
+ \item axessearch - Perform /axes/search request.
+ \item unitsserch -Perform /units/search request.
+ \item kssearch - Perform /keyspaces/search request.
+ \item dfsearch - Perform /dataframes/search request.
+ \item dfslice - Perform /dataframe/slice request.
 }
 }
 
-\section{Request functions}{
+\section{Compressed Search Functions}{
 
 \itemize{
- \item framereq - Submits a request to the framespace server.
- \item bufferreq - Submits a buffered request to the framespace server.
+ \item get.dataframe - Retrieve R DataFrame by keyspace name and unit name.
 }
 }
 
-\section{Response functions}{
+\section{Conversion Functions}{
 
 \itemize{
- \item genestat - Gets summary statistics from a /dataframe/slice response and lists them by gene name.
- \item genematrix - Converts a /dataframe/slice response into a matrix.
+ \item as.dataframe - Convert FrameSpace DataFrame into an R DataFrame.
+}
+}
+
+\section{Specialized HTTP Methods}{
+
+\itemize{
+ \item httpmethods - HTTP methods for performing requests to a FrameSpace server from R. Mainly focused on formatting generic attributes (pageToken, pageSize) on repsonse objects before performing a POST to a server.
 }
 }
 
