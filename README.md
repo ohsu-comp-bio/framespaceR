@@ -24,6 +24,13 @@ fs <- '<framespace_ip>:5000'
 df <- get.dataframe(fs, 'tcga-ACC', 'tcga-gene-expression')
 ```
 
+If the FrameSpace instance you are using requires an Auth token:
+```
+fs <- '<framespace_ip>:5000'
+mytoken <- <token>
+df <- get.dataframe(fs, 'tcga-ACC', 'tcga-gene-expression', auth_token=mytoken)
+```
+
 The rest of the examples will use `fs` in place of the FrameSpace url to query.
 
 ##Make Raw Requests:
