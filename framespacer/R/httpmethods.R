@@ -7,7 +7,7 @@
 #' @import RProtoBuf
 #' @import jsonlite
 #' @export
-post <- function(url, data){
+post <- function(url, data, auth_token=NULL){
 
   if(!is.null(data$pageSize)){
     data$pageSize <- unbox(data$pageSize)
@@ -21,13 +21,25 @@ post <- function(url, data){
   if(!is.null(data$pageToken)){
     data$pageToken <- NULL
   }
+  print("auth_token")
+  print(auth_token)
+  if(!is.null(auth_token)){
+    response <- POST(url,
+                     encode = "json",
+                     accept_json(),
+                     add_headers(`Accept` = 'application/json',
+                                 `Content-Type` = 'application/json',
+                                 `Authorization` = paste('Bearer', auth_token, sep=" ")),
+                     body = toJSON(data))
 
-  response <- POST(url,
-                  encode = "json",
-                  accept_json(),
-                  add_headers(`Accept` = 'application/json',
-                              `Content-Type` = 'application/json'),
-                  body = toJSON(data))
+  }else{
+    response <- POST(url,
+                     encode = "json",
+                     accept_json(),
+                     add_headers(`Accept` = 'application/json',
+                                 `Content-Type` = 'application/json'),
+                     body = toJSON(data))
+  }
 
   return(response)
 }
