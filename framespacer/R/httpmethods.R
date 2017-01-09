@@ -21,8 +21,6 @@ post <- function(url, data, auth_token=NULL){
   if(!is.null(data$pageToken)){
     data$pageToken <- NULL
   }
-  print("auth_token")
-  print(auth_token)
   if(!is.null(auth_token)){
     response <- POST(url,
                      encode = "json",

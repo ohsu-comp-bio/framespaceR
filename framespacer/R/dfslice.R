@@ -21,6 +21,8 @@ dfslice <- function(url, dataframeId, newMajorId = NULL, newMajorKeys = NULL, ne
   l$newMajor$keyspaceId <- unbox(l$newMajor$keyspaceId)
   l$newMinor <- as.list(dmin)
   l$newMinor$keyspaceId <- unbox(l$newMinor$keyspaceId)
+  
+  print(l)
 
   resp <- post(paste(url, '/dataframe/slice', sep=""), l, auth_token=auth_token)
   if(raw){
