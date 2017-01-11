@@ -4,15 +4,13 @@
 \alias{kssearch}
 \title{Sets up a keyspaces search request}
 \usage{
-kssearch(url, axisNames = NULL, keyspaceIds = NULL, names = NULL,
-  keys = NULL, pageSize = NULL, pageToken = NULL, raw = FALSE)
+kssearch(url, axisNames = NULL, ids = NULL, names = NULL, keys = NULL,
+  pageSize = NULL, pageToken = NULL, raw = FALSE)
 }
 \arguments{
 \item{url}{\strong{string} FrameSpace hostname or host:port to send request}
 
 \item{axisNames}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}
-
-\item{keyspaceIds}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}
 
 \item{names}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}
 
@@ -21,6 +19,8 @@ kssearch(url, axisNames = NULL, keyspaceIds = NULL, names = NULL,
 \item{pageSize}{\strong{integer}}
 
 \item{pageToken}{\strong{string}}
+
+\item{keyspaceIds}{\strong{vector} An atomic vector of strings e.g. c("a", "b", "c")}
 }
 \value{
 FrameSpace SearchKeySpacesResponse

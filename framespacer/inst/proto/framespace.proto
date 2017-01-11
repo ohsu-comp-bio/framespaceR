@@ -61,10 +61,10 @@ message SearchKeySpacesResponse {
   string nextPageToken = 2;
 }
 
-// Dimension is a subset of keys from a KeySpace.
+// A keyset is a subset of keys from a KeySpace.
 // Actual subset is defined by the keys list. 
-// A key in a dimension must belong to the keyspace identifed by id.
-message Dimension {
+// A key in a set must belong to the keyspace identifed by id.
+message KeySet {
   string keyspaceId = 1;
   repeated string keys = 2;
 }
@@ -94,53 +94,21 @@ message SearchUnitsResponse {
   string nextPageToken = 2;
 }
 
-// Dataframe consists of two dimensions. 
-// units is a flag specifying the value of a cell.
-// Any restrictions on units should be defined in metadata.
-// The order of heterogenous vectors should correspond to order of
-// units in Unit list.
-// The struct object is protos equivalent of a python dict:
-// dataframe.contents[contents_key][struct_key] = struct_value
-// ie. {'geneA': {'sample1': 0}}, would be populated as
-// dataframe.contents['geneA']['sample1'] = 0
+// A DataFrame is a consolidation of vectors, which may belong to one
+// or more keyspaces. The DataFrame metadata holds the information on 
+// the keyspaces and units bound to the dataframe instance.
 message DataFrame {
   string id = 1;
-  Dimension major = 2;
-  Dimension minor = 3;
-  repeated Unit units = 4;
-  map<string, string> metadata = 5;
-  map<string, google.protobuf.Struct> contents = 6;
+  map<string, string> metadata = 2;
+  map<string, google.protobuf.Struct> contents = 3;
 }
 
-// DataFramesRequest is a POST to /dataframes/search 
-// Search criteria: search for dataframes from a given keyspace(s), 
-// filter by dataframe ids, and unit ids. At least one keyspaceId required.
-message SearchDataFramesRequest {
-  repeated string dataframeIds = 1;
-  repeated string keyspaceIds = 2;
-  repeated string unitIds = 3;
+// BuildDataFrameRequest is a POST to /dataframe
+// Return a set of vectors based on major keyspaces,
+// minor keyspaces, and units. 
+message BuildDataFrameRequest {
+  repeated KeySet major = 1;
+  repeated KeySet minor = 2;
+  repeated Unit units = 3;
   int32 pageSize = 4;
-  string pageToken = 5;
 }
-
-// SearchDataFramesResponse is returned from /dataframes/search
-// By default, the vector contents of a search dataframes response
-// are not returned. The contents should be returned from a dataframe slice.
-message SearchDataFramesResponse {
-  repeated DataFrame dataframes = 1;
-  string nextPageToken = 2;
-}
-
-// SliceDataFrameRequest is a POST to /dataframe/slice 
-// Given an id return a slice based on the following dimensions.
-// Client creates a list of keys as a new dimension, if desired.
-// Subsetting / pagination can be performed by page_start and page_end.
-message SliceDataFrameRequest {
-  string dataframeId = 1;
-  Dimension newMajor = 2;
-  Dimension newMinor = 3;
-  int32 pageStart = 4;
-  int32 pageEnd = 5;
-}
-
-// CreateDataFrameRequest is a POST to a /dataframe/

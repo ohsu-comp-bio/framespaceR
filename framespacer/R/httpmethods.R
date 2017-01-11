@@ -12,12 +12,6 @@ post <- function(url, data){
   if(!is.null(data$pageSize)){
     data$pageSize <- unbox(data$pageSize)
   }
-  if(!is.null(data$pageStart)){
-    data$pageStart <- unbox(data$pageStart)
-  }
-  if(!is.null(data$pageEnd)){
-    data$pageEnd <- unbox(data$pageEnd)
-  }
   if(!is.null(data$pageToken)){
     data$pageToken <- NULL
   }

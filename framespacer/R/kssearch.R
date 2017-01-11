@@ -9,13 +9,12 @@
 #' @param pageToken \strong{string}
 #' @return FrameSpace SearchKeySpacesResponse
 #' @export
-kssearch <- function(url, axisNames = NULL, keyspaceIds = NULL, names = NULL, keys = NULL, pageSize = NULL, pageToken = NULL, raw=FALSE){
+kssearch <- function(url, axisNames = NULL, ids = NULL, names = NULL, keys = NULL, pageSize = NULL, pageToken = NULL, raw=FALSE){
   p <- new(framespace.SearchKeySpacesRequest)
   p$add("axisNames", axisNames)
-  p$add("keyspaceIds", keyspaceIds)
+  p$add("keyspaceIds", ids)
   p$add("names", names)
   p$add("keys", keys)
-
   resp <- post(paste(url, '/keyspaces/search', sep=""), as.list(p))
   if(raw){
     return(resp)

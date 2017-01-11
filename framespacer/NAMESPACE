@@ -2,8 +2,8 @@
 
 S3method(as.data.frame,framespace)
 export(axessearch)
-export(dfsearch)
-export(dfslice)
+export(buildKeySet)
+export(dfbuild)
 export(get.dataframe)
 export(kssearch)
 export(post)
